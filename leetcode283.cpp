@@ -1,15 +1,15 @@
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) 
-    {
-        int n = nums.size();
+    void moveZeroes(vector<int>& num) {
+        int n = num.size();
+
         for (int i = 0; i < n; i++) {
-            int d = nums[i];
-            if (d == 0) {
-                nums.erase(nums.begin() + i);
-                nums.push_back(0);
-                n--;
-                i--;
+            for (int j = 0; j < n - 1; j++) {
+                if (num[j] == 0) {
+                    int m = num[j];
+                    num[j] = num[j + 1];
+                    num[j + 1] = m;
+                }
             }
         }
     }
